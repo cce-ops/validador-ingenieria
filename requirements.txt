@@ -1,0 +1,7 @@
+# Validador Financiero y de Costes de Ingeniería
+# Calculadoras locales (sin IA, sin llamada a red) para autocertificacion del alumnado.
+
+streamlit>=1.55.0
+pandas>=3.0.0
+numpy>=2.0.0
+plotly>=5.0.0
