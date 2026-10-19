@@ -7,6 +7,8 @@ bien resueltos.
 Incluye tres herramientas, con las fórmulas de los documentos de referencia
 ("Costes de ingeniería y Punto de Equilibrio v4" y "Financiación y préstamos v3"):
 
+https://validador-ingenieria.streamlit.app/
+
 | Pestaña | Qué hace |
 | :--- | :--- |
 | 💶 **PHD y Tarifa Final** | Precio Hora Directa, Precio Hora Total y Tarifa Final al cliente (sin/con IVA), con coeficientes α y δ. |
