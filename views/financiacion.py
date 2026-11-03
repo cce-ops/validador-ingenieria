@@ -27,26 +27,33 @@ def render() -> None:
         "para decidir si es mejor pedir crédito o pagar con recursos propios."
     )
 
-    with st.expander("ℹ️ Datos del ejercicio de referencia (PDF adjunto)", expanded=True):
-        st.markdown(
-            "- **Proyecto**: Línea de reciclaje de plásticos (misma inversión).\n"
-            "- **Inversión inicial (C₀)**: 18.000 € (ya pagada en año 0 si es al contado).\n"
-            "- **Flujo neto anual (operativo)**: 5.000 € / año × 6 años.\n"
-            "- **TMAR (tasa mínima)**: 10%.\n"
-            "- **Préstamo**: Francés, 6 años, 7% anual, 100% de C₀ = 18.000 €."
-        )
-
     st.markdown("---")
     st.subheader("⚙️ Parámetros de la Financiación")
     col_inv, col_tin, col_vida, col_tmar = st.columns(4)
     with col_inv:
-        c0 = st.number_input("Inversión / Capital prestado C₀ (€)", min_value=1000, max_value=500000, value=18000, step=500, key="fin__c0")
+        c0 = st.number_input(
+            "Inversión / Capital prestado C₀ (€)",
+            min_value=1000, max_value=500000, value=18000, step=500, key="fin__c0",
+            help="C₀ = capital prestado al inicio (año 0). Si pagas al contado es la inversión inicial; si pides préstamo, es lo que recibe el banco.",
+        )
     with col_tin:
-        tin = st.number_input("Tipo de interés TIN anual (%)", min_value=0.1, max_value=25.0, value=7.0, step=0.1, key="fin__tin")
+        tin = st.number_input(
+            "Tipo de interés TIN anual (%)",
+            min_value=0.1, max_value=25.0, value=7.0, step=0.1, key="fin__tin",
+            help="TIN (Tipo de Interés Nominal): % anual que declara el banco, sin considerar capitalización.",
+        )
     with col_vida:
-        n_anios = st.number_input("Vida útil / Plazo del préstamo (años)", min_value=1, max_value=30, value=6, step=1, key="fin__n")
+        n_anios = st.number_input(
+            "Vida útil / Plazo del préstamo (años)",
+            min_value=1, max_value=30, value=6, step=1, key="fin__n",
+            help="n = número de periodos (años × m si es mensual, etc.). Aquí anual.",
+        )
     with col_tmar:
-        tmar = st.number_input("TMAR / Tasa descuento (%)", min_value=0.0, max_value=50.0, value=10.0, step=0.5, key="fin__tmar")
+        tmar = st.number_input(
+            "TMAR / Tasa descuento (%)",
+            min_value=0.0, max_value=50.0, value=10.0, step=0.5, key="fin__tmar",
+            help="TMAR (Tasa Mínima Aceptable de Rentabilidad): rentabilidad mínima exigida para que el proyecto sea viable.",
+        )
 
     # Datos operativos (puede editarse)
     st.markdown("---")
