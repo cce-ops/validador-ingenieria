@@ -225,10 +225,26 @@ $$
         key="prestamo__mostrar",
     )
 
-    df_show = df.head(mostrar).copy()
+    # --- Fila total ---
+    df_total = df.copy()
+    df_total.loc[len(df_total)] = {
+        "Periodo r": "TOTAL",
+        "Cuota a (€)": round(df["Cuota a (€)"].dropna().sum(), 2),
+        "Intereses Yr (€)": round(df["Intereses Yr (€)"].dropna().sum(), 2),
+        "Capital Ar (€)": round(df["Capital Ar (€)"].dropna().sum(), 2),
+        "Deuda pendiente Rr (€)": 0.0,
+        "Capital amortizado acumulado (€)": round(df["Capital amortizado acumulado (€)"].dropna().sum(), 2),
+        "Intereses acumulados (€)": round(df["Intereses acumulados (€)"].dropna().sum(), 2),
+    }
+    df_show = df_total.head(min(mostrar + 1, len(df_total))).copy()
+    # Asegurar que la fila TOTAL siempre esté visible si el usuario quiere ver todo
+    if mostrar >= len(df) - 1:
+        df_show = df_total.copy()
+
     st.dataframe(
         df_show.style.format(
             {
+                "Periodo r": lambda v: "**TOTAL**" if isinstance(v, str) and v == "TOTAL" else str(v),
                 "Cuota a (€)": "{:,.2f}",
                 "Intereses Yr (€)": "{:,.2f}",
                 "Capital Ar (€)": "{:,.2f}",
