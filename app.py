@@ -22,7 +22,7 @@ from __future__ import annotations
 
 import streamlit as st
 
-from views import phd_tarifa, prestamo_frances, punto_equilibrio
+from views import phd_tarifa, prestamo_frances, punto_equilibrio, financiacion
 
 # Unica llamada a set_page_config de toda la aplicacion.
 st.set_page_config(
@@ -40,8 +40,8 @@ st.caption(
 )
 
 # Pestanas de primer nivel, perezosas: solo se ejecuta la que esta visible.
-tab_phd, tab_prestamo, tab_pe = st.tabs(
-    ["💶 PHD y Tarifa Final", "🏦 Préstamo Francés y TAE", "⚖️ Punto de Equilibrio"],
+tab_phd, tab_prestamo, tab_pe, tab_fin = st.tabs(
+    ["💶 PHD y Tarifa Final", "🏦 Préstamo Francés y TAE", "⚖️ Punto de Equilibrio", "💰 Financiación y VAN con Préstamo"],
     on_change="rerun",
     key="nav_principal",
 )
@@ -57,3 +57,7 @@ if tab_prestamo.open:
 if tab_pe.open:
     with tab_pe:
         punto_equilibrio.render()
+
+if tab_fin.open:
+    with tab_fin:
+        financiacion.render()
