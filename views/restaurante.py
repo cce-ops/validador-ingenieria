@@ -198,7 +198,7 @@ def render() -> None:
     col1, col2, col3 = st.columns(3)
     col1.metric("PE anual (menús)", f"{pe_anual:.0f}")
     col2.metric("PR (años, con 500k €)", f"{pr_anual:.1f}")
-    col3.metric("PE vs PR", "Distintos (ver explicación debajo)")
+    col3.metric("PE vs PR", "Distintos")
 
     # Resumen interactivo
     st.markdown("---")
