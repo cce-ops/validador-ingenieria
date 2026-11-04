@@ -16,15 +16,6 @@ def render() -> None:
         "### 💰 Costes de Ingeniería — Punto de Equilibrio y PHD"
     )
 
-    with st.expander("ℹ️ Datos del ejercicio (PDF adjunto)", expanded=True):
-        st.markdown(
-            "- **Capacidad**: 80 mesas × 4 plazas, 1 turno, 200 días/año.\n"
-            "- **Menús**: Adulto 200 € (coste 20 €), Infantil 100 € (coste 15 €); 60% / 40%.\n"
-            "- **Personal técnico**: 15 trabajadores, S = 30.000 €, SS patronal = 31,57 %, OCD = 1.000 €, H = 1.760 h, productivas = 1.200 h.\n"
-            "- **Indirectos**: 850.000 €/año.\n"
-            "- **Inversión inicial (para PR)**: 500.000 € (ejercicio 7)."
-        )
-
     st.markdown("---")
     st.subheader("⚙️ Datos de entrada (editable)")
     col1, col2 = st.columns(2)
