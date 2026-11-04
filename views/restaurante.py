@@ -13,7 +13,7 @@ import streamlit as st
 
 def render() -> None:
     st.markdown(
-        "### 🍽️ Restaurante Can Magarola — Puntos 1 a 7"
+        "### 💰 Costes de Ingeniería — Punto de Equilibrio y PHD"
     )
 
     with st.expander("ℹ️ Datos del ejercicio (PDF adjunto)", expanded=True):

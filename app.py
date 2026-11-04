@@ -41,7 +41,7 @@ st.caption(
 
 # Pestanas de primer nivel, perezosas: solo se ejecuta la que esta visible.
 tab_phd, tab_prestamo, tab_pe, tab_fin, tab_rest = st.tabs(
-    ["💶 PHD y Tarifa Final", "🏦 Préstamo Francés y TAE", "⚖️ Punto de Equilibrio", "💰 Financiación y VAN con Préstamo", "🍽️ Restaurante Can Magarola"],
+    ["💶 PHD y Tarifa Final", "🏦 Préstamo Francés y TAE", "⚖️ Punto de Equilibrio", "💰 Financiación y VAN con Préstamo", "💰 Costes de Ingeniería y Punto de Equilibrio"],
     on_change="rerun",
     key="nav_principal",
 )
